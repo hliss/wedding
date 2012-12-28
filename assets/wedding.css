@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+body {
+    background-color: #F7E4D2;
+}
+
+ol {
+    position: relative;
+    height: 585px;
+    list-style: none;
+    margin: auto;
+    border: 2px solid #2F6E9F;
+    width: 945px;
+    padding: 0;
+}
+
+ol li {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
+li.one {
+    height: 45px;
+    width: 45px;
+    left: 225px;
+    top: 180px;
+}
+li.one:first-child {
+    top: 135px;
+}
+li.two {
+    height: 90px;
+    width: 90px;
+    left: 270px;
+    top: 135px;
+}
+li.three {
+    height: 135px;
+    width: 135px;
+    left: 225px;
+}
+li.five {
+    height: 225px;
+    width: 225px;
+}
+li.eight {
+    height: 360px;
+    width: 360px;
+    top: 225px;
+}
+li.thirteen {
+    height: 585px;
+    width: 585px;
+    left: 360px;
+}
