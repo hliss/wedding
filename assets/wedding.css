@@ -63,16 +63,16 @@ ul {
     margin: 0;
     padding: 0;
 }
-ul.nav {
+#nav {
     margin: 20px 230px;
 }
-ul.nav li {
+#nav li {
     font-family: EB Garamond, Garamond, Verdana;
     font-size: 24px;
     float: left;
     margin: 0 35px;
 }
-ul.nav li a {
+#nav li a {
     color: #2F6E9F;
     text-decoration: none;
 }
