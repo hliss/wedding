@@ -1,7 +1,8 @@
 (function ($) {
     var states = {
             DEFAULT: null,
-            WHEN: 'WHEN'
+            WHEN: 'when',
+            WHERE: 'where'
         },
         defaults = {
             two: 'two.jpg',
@@ -10,35 +11,51 @@
             eight: 'eight.jpg',
             thirteen: 'thirteen.jpg'
         },
-        when = {
-            three: 'date_3.jpg',
-            eight: 'date_8.jpg',
-            thirteen: 'date_13.jpg'
+        indexes = {
+            when: {
+                three: 'date_3.jpg',
+                eight: 'date_8.jpg',
+                thirteen: 'date_13.jpg'
+            },
+            where: {
+                three: 'city_3.jpg',
+                five: 'city_5.jpg',
+                eight: 'city_8.jpg'
+            },
         },
+
         clickState = states.DEFAULT,
         setImageSrc = function (selector, src) {
             $(selector).attr('src', 'assets/' + src);
         },
-        showHideWhen = function (shouldShow) {
-            var library = shouldShow ? when : defaults;
-            setImageSrc('li.three img', library.three);
-            setImageSrc('li.eight img', library.eight);
-            setImageSrc('li.thirteen img', library.thirteen);
+        showHide = function (index, shouldShow) {
+            var library = shouldShow ? index : defaults,
+                size;
+            for (size in index) {
+                if (index.hasOwnProperty(size)) {
+                    setImageSrc('li.' + size + ' img', library[size]);
+                }
+            }
+        },
+        initLink = function (selector, state) {
+            $(selector)
+                .click(function (e) {
+                    e.preventDefault();
+                    clickState = clickState !== state ? state : states.DEFAULT;
+                    showHide(indexes[state], clickState === state);
+                })
+                .hover(function () {
+                        if (clickState == states.DEFAULT) {
+                            showHide(indexes[state], true);                    
+                        }
+                    }, function () {
+                        if (clickState == states.DEFAULT) {
+                            showHide(indexes[state], false);                    
+                        }
+                });            
         };
-        
-    $('#when')
-        .click(function (e) {
-            e.preventDefault();
-            clickState = clickState !== states.WHEN ? states.WHEN : states.DEFAULT;
-            showHideWhen(clickState === states.WHEN);
-        })
-        .hover(function () {
-                if (clickState == states.DEFAULT) {
-                    showHideWhen(true);                    
-                }
-            }, function () {
-                if (clickState == states.DEFAULT) {
-                    showHideWhen(false);                    
-                }
-        });
+    
+    initLink('#when', states.WHEN);
+    initLink('#where', states.WHERE);
+
 })(jQuery);
