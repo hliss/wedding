@@ -40,9 +40,13 @@
         initLink = function (selector, state) {
             $(selector)
                 .click(function (e) {
+                    var shouldShow = clickState !== state;
                     e.preventDefault();
-                    clickState = clickState !== state ? state : states.DEFAULT;
-                    showHide(indexes[state], clickState === state);
+                    clickState = shouldShow ? state : states.DEFAULT;
+                    if (shouldShow) {
+                        showHide(defaults, false);
+                    }
+                    showHide(indexes[state], shouldShow);
                 })
                 .hover(function () {
                         if (clickState == states.DEFAULT) {
