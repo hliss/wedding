@@ -4,13 +4,16 @@ body {
     background-color: #F7E4D2;
 }
 
+#container {
+    width: 949px;
+    margin: auto;
+}
+
 ol {
     position: relative;
     height: 585px;
     list-style: none;
-    margin: auto;
     border: 2px solid #2F6E9F;
-    width: 945px;
     padding: 0;
 }
 
@@ -53,4 +56,23 @@ li.thirteen {
     height: 585px;
     width: 585px;
     left: 360px;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul.nav {
+    margin: 20px 230px;
+}
+ul.nav li {
+    font-family: EB Garamond, Garamond, Verdana;
+    font-size: 24px;
+    float: left;
+    margin: 0 35px;
+}
+ul.nav li a {
+    color: #2F6E9F;
+    text-decoration: none;
 }
