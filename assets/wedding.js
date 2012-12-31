@@ -41,7 +41,7 @@ jQuery(function ($) {
                     setImageSrc('li.' + size + ' img', library[size]);
                 }
             }
-            
+
             // special cases
             if (index == indexes.hotels && shouldShow) {
                 $hotelsContainer.show();
@@ -62,15 +62,15 @@ jQuery(function ($) {
                 })
                 .hover(function () {
                         if (clickState == states.DEFAULT) {
-                            showHide(indexes[state], true);                    
+                            showHide(indexes[state], true);
                         }
                     }, function () {
                         if (clickState == states.DEFAULT) {
-                            showHide(indexes[state], false);                    
+                            showHide(indexes[state], false);
                         }
                 });
         };
-    
+
     $hotelsContainer.offset($('li.thirteen').offset());
 
     initLink('#when', states.WHEN);
