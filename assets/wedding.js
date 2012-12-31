@@ -76,4 +76,9 @@ jQuery(function ($) {
     initLink('#when', states.WHEN);
     initLink('#where', states.WHERE);
     initLink('#hotels', states.HOTELS);
+
+    $('#pictures').click(function () {
+        clickState = states.DEFAULT;
+        showHide(defaults, true);
+    });
 });
