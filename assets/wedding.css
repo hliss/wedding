@@ -63,16 +63,48 @@ ul {
     margin: 0;
     padding: 0;
 }
+
 #nav {
     margin: 20px 230px;
 }
+
 #nav li {
-    font-family: EB Garamond, Garamond, Verdana;
-    font-size: 24px;
     float: left;
     margin: 0 35px;
 }
-#nav li a {
+#nav li,
+#hotels_container {
+    font-family: EB Garamond, Garamond, Verdana;
+    font-size: 24px;
+}
+
+#nav li a,
+#hotels_container, 
+#hotels_container a {
     color: #2F6E9F;
     text-decoration: none;
+}
+
+#hotels_container {
+    display: none;
+    position: absolute;
+    height: 585px;
+    width: 585px;
+    left: 360px;
+}
+#hotels_container li {
+    margin: 20px 0;
+}
+#hotels_container span {
+    display: block;
+    text-align: center;
+}
+
+#hotels_container a:after {
+    margin-left: 5px;
+    content: '|';
+}
+#hotels_container a:last-child:after {
+    margin-left: 0;
+    content: '';
 }

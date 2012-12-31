@@ -1,8 +1,9 @@
-(function ($) {
+jQuery(function ($) {
     var states = {
             DEFAULT: null,
             WHEN: 'when',
-            WHERE: 'where'
+            WHERE: 'where',
+            HOTELS: 'hotels'
         },
         defaults = {
             two: 'two.jpg',
@@ -22,19 +23,30 @@
                 five: 'city_5.jpg',
                 eight: 'city_8.jpg'
             },
+            hotels: {
+                thirteen: 'light_13.jpg'
+            }
         },
-
         clickState = states.DEFAULT,
+        $hotelsContainer = $('#hotels_container');
         setImageSrc = function (selector, src) {
             $(selector).attr('src', 'assets/' + src);
         },
         showHide = function (index, shouldShow) {
             var library = shouldShow ? index : defaults,
                 size;
+
             for (size in index) {
                 if (index.hasOwnProperty(size)) {
                     setImageSrc('li.' + size + ' img', library[size]);
                 }
+            }
+            
+            // special cases
+            if (index == indexes.hotels && shouldShow) {
+                $hotelsContainer.show();
+            } else {
+                $hotelsContainer.hide();
             }
         },
         initLink = function (selector, state) {
@@ -56,10 +68,12 @@
                         if (clickState == states.DEFAULT) {
                             showHide(indexes[state], false);                    
                         }
-                });            
+                });
         };
     
+    $hotelsContainer.offset($('li.thirteen').offset());
+
     initLink('#when', states.WHEN);
     initLink('#where', states.WHERE);
-
-})(jQuery);
+    initLink('#hotels', states.HOTELS);
+});
