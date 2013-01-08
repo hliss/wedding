@@ -3,7 +3,8 @@ jQuery(function ($) {
             DEFAULT: null,
             WHEN: 'when',
             WHERE: 'where',
-            HOTELS: 'hotels'
+            HOTELS: 'hotels',
+            GIFTS: 'gifts'
         },
         defaults = {
             two: 'two.jpg',
@@ -11,6 +12,9 @@ jQuery(function ($) {
             five: 'five.jpg',
             eight: 'eight.jpg',
             thirteen: 'thirteen.jpg'
+        },
+        thirteenTextState = {
+            thirteen: 'light_13.jpg'
         },
         indexes = {
             when: {
@@ -23,16 +27,23 @@ jQuery(function ($) {
                 five: 'city_5.jpg',
                 eight: 'city_8.jpg'
             },
-            hotels: {
-                thirteen: 'light_13.jpg'
-            }
+            hotels: thirteenTextState,
+            gifts: thirteenTextState
         },
         clickState = states.DEFAULT,
-        $hotelsContainer = $('#hotels_container');
+        $hotelsContainer = $('#hotels_container'),
+        $giftsContainer = $('#gifts_container'),
         setImageSrc = function (selector, src) {
             $(selector).attr('src', 'assets/' + src);
         },
-        showHide = function (index, shouldShow) {
+        conditionalShowSection = function (currentState, targetState, shouldShow, $container) {
+            if (currentState == targetState && shouldShow) {
+                $container.show();
+            } else {
+                $container.hide();
+            }
+        },
+        showHide = function (state, index, shouldShow) {
             var library = shouldShow ? index : defaults,
                 size;
 
@@ -43,11 +54,21 @@ jQuery(function ($) {
             }
 
             // special cases
+            conditionalShowSection(state, states.HOTELS, shouldShow, $hotelsContainer);
+            conditionalShowSection(state, states.GIFTS, shouldShow, $giftsContainer);
+            /*
             if (index == indexes.hotels && shouldShow) {
                 $hotelsContainer.show();
             } else {
                 $hotelsContainer.hide();
             }
+            
+            if (index == indexes.gifts && shouldShow) {
+                $giftsContainer.show();
+            } else {
+                $giftsContainer.hide();
+            }
+            */
         },
         initLink = function (selector, state) {
             $(selector)
@@ -56,26 +77,27 @@ jQuery(function ($) {
                     e.preventDefault();
                     clickState = shouldShow ? state : states.DEFAULT;
                     if (shouldShow) {
-                        showHide(defaults, false);
+                        showHide(states.DEFAULT, defaults, false);
                     }
-                    showHide(indexes[state], shouldShow);
+                    showHide(state, indexes[state], shouldShow);
                 })
                 .hover(function () {
                         if (clickState == states.DEFAULT) {
-                            showHide(indexes[state], true);
+                            showHide(state, indexes[state], true);
                         }
                     }, function () {
                         if (clickState == states.DEFAULT) {
-                            showHide(indexes[state], false);
+                            showHide(state, indexes[state], false);
                         }
                 });
         };
 
-    $hotelsContainer.offset($('li.thirteen').offset());
+    $($hotelsContainer).add($giftsContainer).offset($('li.thirteen').offset());
 
     initLink('#when', states.WHEN);
     initLink('#where', states.WHERE);
     initLink('#hotels', states.HOTELS);
+    initLink('#gifts', states.GIFTS);
 
     $('#pictures').click(function () {
         clickState = states.DEFAULT;
