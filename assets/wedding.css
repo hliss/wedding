@@ -102,6 +102,8 @@ h1 {
     height: 585px;
     width: 585px;
     left: 360px;
+    padding-top: 20px;
+    font-weight: bold;
 }
 
 .content_container li {
