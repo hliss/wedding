@@ -4,7 +4,8 @@ jQuery(function ($) {
             WHEN: 'when',
             WHERE: 'where',
             HOTELS: 'hotels',
-            GIFTS: 'gifts'
+            GIFTS: 'gifts',
+            PARTY: 'party'
         },
         defaults = {
             two: 'two.jpg',
@@ -28,11 +29,13 @@ jQuery(function ($) {
                 eight: 'city_8.jpg'
             },
             hotels: thirteenTextState,
-            gifts: thirteenTextState
+            gifts: thirteenTextState,
+            party: thirteenTextState
         },
         clickState = states.DEFAULT,
         $hotelsContainer = $('#hotels_container'),
         $giftsContainer = $('#gifts_container'),
+        $partyContainer = $('#party_container'),
         setImageSrc = function (selector, src) {
             $(selector).attr('src', 'assets/' + src);
         },
@@ -56,19 +59,7 @@ jQuery(function ($) {
             // special cases
             conditionalShowSection(state, states.HOTELS, shouldShow, $hotelsContainer);
             conditionalShowSection(state, states.GIFTS, shouldShow, $giftsContainer);
-            /*
-            if (index == indexes.hotels && shouldShow) {
-                $hotelsContainer.show();
-            } else {
-                $hotelsContainer.hide();
-            }
-            
-            if (index == indexes.gifts && shouldShow) {
-                $giftsContainer.show();
-            } else {
-                $giftsContainer.hide();
-            }
-            */
+            conditionalShowSection(state, states.PARTY, shouldShow, $partyContainer);
         },
         initLink = function (selector, state) {
             $(selector)
@@ -92,15 +83,45 @@ jQuery(function ($) {
                 });
         };
 
-    $($hotelsContainer).add($giftsContainer).offset($('li.thirteen').offset());
+    $($hotelsContainer)
+        .add($giftsContainer)
+        .add($partyContainer)
+        .offset($('li.thirteen').offset());
 
     initLink('#when', states.WHEN);
     initLink('#where', states.WHERE);
     initLink('#hotels', states.HOTELS);
+    initLink('#party', states.PARTY);
     initLink('#gifts', states.GIFTS);
 
     $('#pictures').click(function () {
         clickState = states.DEFAULT;
         showHide(defaults, true);
     });
+    
+    window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+            appId      : '485906441452167', // App ID from the App Dashboard
+            channelUrl : '//www.haroldplusdaniela.com/channel.html', // Channel File for x-domain communication
+            status     : true, // check the login status upon init?
+            cookie     : true, // set sessions cookies to allow your server to access the session?
+            xfbml      : true  // parse XFBML tags on this page?
+        });
+
+        // Additional initialization code such as adding Event Listeners goes here
+
+    };
+
+    // Load the SDK's source Asynchronously
+    // Note that the debug version is being actively developed and might 
+    // contain some type checks that are overly strict. 
+    // Please report such bugs using the bugs tool.
+    (function(d, debug){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document, /*debug*/ false));
 });

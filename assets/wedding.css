@@ -99,7 +99,7 @@ h1 {
 .content_container {
     display: none;
     position: absolute;
-    height: 585px;
+    height: 565px;
     width: 585px;
     left: 360px;
     padding-top: 20px;
@@ -123,3 +123,14 @@ h1 {
     content: '';
 }
 
+#party_container a.fb_link {
+    margin: 0 10px;
+}
+#party_container a.fb_link img {
+    
+}
+#party_container span.party_member {
+    display: inline;
+    height: 50px;
+    vertical-align: top;
+}
