@@ -83,12 +83,19 @@ h1,
     font-size: 24px;
 }
 
-h1,
-#nav li a,
-.content_container,
-.content_container a {
+h1 {
     color: #2F6E9F;
+}
+.content_container {
+    color: #333;
     text-decoration: none;
+}
+#nav li a {
+    text-decoration: none;
+}
+
+#nav li a:visited {
+    color: #2F6E9F;
 }
 
 h1 {
@@ -112,6 +119,9 @@ h1 {
 .content_container span {
     display: block;
     text-align: center;
+}
+.content_container span.instructions {
+    font-size: 22px;
 }
 
 #hotels_container a:after {

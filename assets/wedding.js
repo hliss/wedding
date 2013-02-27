@@ -31,7 +31,16 @@ jQuery(function ($) {
             hotels: thirteenTextState,
             gifts: thirteenTextState,
             party: thirteenTextState
-        },
+        }
+        preloadImageFilenames = [
+            'light_13.jpg',
+            'date_3.jpg',
+            'date_8.jpg',
+            'date_13.jpg',
+            'city_3.jpg',
+            'city_5.jpg',
+            'city_8.jpg'
+        ],
         clickState = states.DEFAULT,
         $hotelsContainer = $('#hotels_container'),
         $giftsContainer = $('#gifts_container'),
@@ -81,7 +90,9 @@ jQuery(function ($) {
                             showHide(state, indexes[state], false);
                         }
                 });
-        };
+        },
+        preloadImage = new Image(),
+        i = 0;
 
     $($hotelsContainer)
         .add($giftsContainer)
@@ -98,6 +109,10 @@ jQuery(function ($) {
         clickState = states.DEFAULT;
         showHide(defaults, true);
     });
+    
+    for (i = 0; i < preloadImageFilenames.length; i += 1) {
+        preloadImage.src = 'assets/' + preloadImageFilenames[i];
+    }
     
     window.fbAsyncInit = function() {
         // init the FB JS SDK
