@@ -86,13 +86,13 @@ jQuery(function ($) {
                     showHide(state, indexes[state], shouldShow);
                 })
                 .hover(function () {
-                        if (clickState == states.DEFAULT) {
-                            showHide(state, indexes[state], true);
-                        }
-                    }, function () {
-                        if (clickState == states.DEFAULT) {
-                            showHide(state, indexes[state], false);
-                        }
+                    if (clickState == states.DEFAULT) {
+                        showHide(state, indexes[state], true);
+                    }
+                }, function () {
+                    if (clickState == states.DEFAULT) {
+                        showHide(state, indexes[state], false);
+                    }
                 });
         },
         preloadImage = new Image(),
@@ -115,11 +115,11 @@ jQuery(function ($) {
         clickState = states.DEFAULT;
         showHide(defaults, true);
     });
-    
+
     for (i = 0; i < preloadImageFilenames.length; i += 1) {
         preloadImage.src = 'assets/' + preloadImageFilenames[i];
     }
-    
+
     window.fbAsyncInit = function() {
         // init the FB JS SDK
         FB.init({
