@@ -5,7 +5,8 @@ jQuery(function ($) {
             WHERE: 'where',
             HOTELS: 'hotels',
             GIFTS: 'gifts',
-            PARTY: 'party'
+            PARTY: 'party',
+            EVENTS: 'events'
         },
         defaults = {
             two: 'two.jpg',
@@ -30,8 +31,9 @@ jQuery(function ($) {
             },
             hotels: thirteenTextState,
             gifts: thirteenTextState,
-            party: thirteenTextState
-        }
+            party: thirteenTextState,
+            events: thirteenTextState
+        },
         preloadImageFilenames = [
             'light_13.jpg',
             'date_3.jpg',
@@ -45,6 +47,7 @@ jQuery(function ($) {
         $hotelsContainer = $('#hotels_container'),
         $giftsContainer = $('#gifts_container'),
         $partyContainer = $('#party_container'),
+        $eventsContainer = $('#events_container'),
         setImageSrc = function (selector, src) {
             $(selector).attr('src', 'assets/' + src);
         },
@@ -69,6 +72,7 @@ jQuery(function ($) {
             conditionalShowSection(state, states.HOTELS, shouldShow, $hotelsContainer);
             conditionalShowSection(state, states.GIFTS, shouldShow, $giftsContainer);
             conditionalShowSection(state, states.PARTY, shouldShow, $partyContainer);
+            conditionalShowSection(state, states.EVENTS, shouldShow, $eventsContainer);
         },
         initLink = function (selector, state) {
             $(selector)
@@ -97,6 +101,7 @@ jQuery(function ($) {
     $($hotelsContainer)
         .add($giftsContainer)
         .add($partyContainer)
+        .add($eventsContainer)
         .offset($('li.thirteen').offset());
 
     initLink('#when', states.WHEN);
@@ -104,6 +109,7 @@ jQuery(function ($) {
     initLink('#hotels', states.HOTELS);
     initLink('#party', states.PARTY);
     initLink('#gifts', states.GIFTS);
+    initLink('#events', states.EVENTS);
 
     $('#pictures').click(function () {
         clickState = states.DEFAULT;
