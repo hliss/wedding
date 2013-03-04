@@ -120,17 +120,11 @@ h1 {
     display: block;
     text-align: center;
 }
-.content_container span.instructions {
+#hotels_container {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 565px;
     font-size: 22px;
-}
-
-#hotels_container a:after {
-    margin-left: 5px;
-    content: '|';
-}
-#hotels_container a:last-child:after {
-    margin-left: 0;
-    content: '';
 }
 
 #party_container a.fb_link {
