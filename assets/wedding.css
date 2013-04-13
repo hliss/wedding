@@ -127,7 +127,8 @@ h1 {
     font-size: 22px;
 }
 
-#party_container a.fb_link {
+#party_container a.fb_link,
+#party_container img {
     margin: 0 10px;
 }
 #party_container a.fb_link img {
