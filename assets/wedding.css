@@ -99,12 +99,14 @@ h1,
 h1 {
     color: #2F6E9F;
 }
+
 .content_container {
     color: #333;
     text-decoration: none;
 }
 #nav li a {
     text-decoration: none;
+    color: #2F6E9F;
 }
 
 #nav li a:visited {
@@ -112,6 +114,7 @@ h1 {
 }
 
 h1 {
+    color: #2F6E9F;
     font-size: 32px;
     text-align: center;
 }
@@ -129,9 +132,16 @@ h1 {
 .content_container li {
     margin: 20px 0;
 }
-.content_container span {
+.content_container span, .content_container h3, .content_container h2 {
     display: block;
     text-align: center;
+}
+.content_container h2 {
+    font-size: 30px;
+}
+.content_container h3 {
+    font-size: 24px;
+    padding-bottom: 5px;
 }
 #hotels_container {
     padding-left: 10px;
@@ -139,7 +149,15 @@ h1 {
     width: 565px;
     font-size: 22px;
 }
-
+#places_container {
+    font-size: 20px;
+}
+#places_container span {
+    text-align: left;
+}
+#party_container {
+    padding: 30px;
+}
 #party_container img {
     margin: 0 10px;
 }

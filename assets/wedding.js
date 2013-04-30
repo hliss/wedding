@@ -6,7 +6,8 @@ jQuery(function ($) {
             HOTELS: 'hotels',
             GIFTS: 'gifts',
             PARTY: 'party',
-            EVENTS: 'events'
+            EVENTS: 'events',
+            PLACES: 'places'
         },
         defaults = {
             two: 'two.jpg',
@@ -24,15 +25,16 @@ jQuery(function ($) {
                 eight: 'date_8.jpg',
                 thirteen: 'date_13.jpg'
             },
-            where: {
-                three: 'city_3.jpg',
-                five: 'city_5.jpg',
-                eight: 'city_8.jpg'
-            },
+            where: thirteenTextState,
             hotels: thirteenTextState,
             gifts: thirteenTextState,
             party: thirteenTextState,
-            events: thirteenTextState
+            events: thirteenTextState,
+            places: $.extend({
+                three: 'city_3.jpg',
+                five: 'city_5.jpg',
+                eight: 'city_8.jpg',
+            }, thirteenTextState),
         },
         preloadImageFilenames = [
             'light_13.jpg',
@@ -44,10 +46,12 @@ jQuery(function ($) {
             'city_8.jpg'
         ],
         clickState = states.DEFAULT,
+        $whereContainer = $('#where_container'),
         $hotelsContainer = $('#hotels_container'),
         $giftsContainer = $('#gifts_container'),
         $partyContainer = $('#party_container'),
         $eventsContainer = $('#events_container'),
+        $placesContainer = $('#places_container'),
         setImageSrc = function (selector, src) {
             $(selector).attr('src', 'assets/' + src);
         },
@@ -69,10 +73,12 @@ jQuery(function ($) {
             }
 
             // special cases
+            conditionalShowSection(state, states.WHERE, shouldShow, $whereContainer);
             conditionalShowSection(state, states.HOTELS, shouldShow, $hotelsContainer);
             conditionalShowSection(state, states.GIFTS, shouldShow, $giftsContainer);
             conditionalShowSection(state, states.PARTY, shouldShow, $partyContainer);
             conditionalShowSection(state, states.EVENTS, shouldShow, $eventsContainer);
+            conditionalShowSection(state, states.PLACES, shouldShow, $placesContainer);
         },
         initLink = function (selector, state) {
             $(selector)
@@ -102,6 +108,8 @@ jQuery(function ($) {
         .add($giftsContainer)
         .add($partyContainer)
         .add($eventsContainer)
+        .add($whereContainer)
+        .add($placesContainer)
         .offset($('li.thirteen').offset());
 
     initLink('#when', states.WHEN);
@@ -110,6 +118,7 @@ jQuery(function ($) {
     initLink('#party', states.PARTY);
     initLink('#gifts', states.GIFTS);
     initLink('#events', states.EVENTS);
+    //initLink('#places', states.PLACES);
 
     $('#pictures').click(function () {
         clickState = states.DEFAULT;
