@@ -135,3 +135,24 @@ h1 {
     height: 50px;
     vertical-align: top;
 }
+
+/* begin rsvp section */
+.ss-printable-hint {
+    display: none;
+}
+
+.ss-item,
+#add-another {
+    margin: 10px 0;
+}
+
+.guest-name-2,
+.guest-name-3,
+.guest-name-4,
+.guest-meal-2,
+.guest-meal-3,
+.guest-meal-4 {
+    display: none;
+}
+
+/* end rsvp section */
