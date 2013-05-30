@@ -90,16 +90,16 @@ jQuery(function ($) {
                         showHide(states.DEFAULT, defaults, false);
                     }
                     showHide(state, indexes[state], shouldShow);
-                })
-                .hover(function () {
-                    if (clickState == states.DEFAULT) {
-                        showHide(state, indexes[state], true);
-                    }
-                }, function () {
-                    if (clickState == states.DEFAULT) {
-                        showHide(state, indexes[state], false);
-                    }
                 });
+                //.hover(function () {
+                    //if (clickState == states.DEFAULT) {
+                        //showHide(state, indexes[state], true);
+                    //}
+                //}, function () {
+                    //if (clickState == states.DEFAULT) {
+                        //showHide(state, indexes[state], false);
+                    //}
+                //});
         },
         preloadImage = new Image(),
         fragment = window.location.hash.substring(1),
