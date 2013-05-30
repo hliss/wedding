@@ -9,13 +9,21 @@ body {
     margin: auto;
 }
 
-ol {
+ol, .page_content {
     float: left;
     position: relative;
-    height: 585px;
     width: 945px;
-    list-style: none;
     border: 2px solid #2F6E9F;
+}
+
+.page_content {
+  padding: 25px;
+  background-color: #FAECDE;
+}
+
+ol {
+    height: 585px;
+    list-style: none;
     padding: 0;
 }
 
@@ -81,6 +89,11 @@ h1,
 .content_container {
     font-family: EB Garamond, Garamond, Verdana;
     font-size: 24px;
+}
+
+#nav li#rsvp {
+    font-size: 30px;
+    font-weight: bold;
 }
 
 h1 {
