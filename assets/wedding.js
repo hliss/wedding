@@ -102,6 +102,7 @@ jQuery(function ($) {
                 });
         },
         preloadImage = new Image(),
+        fragment = window.location.hash.substring(1),
         i = 0;
 
     $($hotelsContainer)
@@ -119,6 +120,11 @@ jQuery(function ($) {
     initLink('#gifts', states.GIFTS);
     initLink('#events', states.EVENTS);
     //initLink('#places', states.PLACES);
+    if($.inArray(fragment, ['#when', '#where', '#hotels', '#party', '#gifts', '#events'])) {
+      clickState = fragment;
+      showHide(fragment, indexes[fragment], true);
+    }
+
 
     $('#pictures').click(function () {
         clickState = states.DEFAULT;

@@ -10,6 +10,7 @@ body {
 }
 
 ol, .page_content {
+    margin: 0;
     float: left;
     position: relative;
     width: 945px;
@@ -17,8 +18,15 @@ ol, .page_content {
 }
 
 .page_content {
+  box-sizing: border-box;
   padding: 25px;
   background-color: #FAECDE;
+}
+
+.page_content.sf {
+  height: 630px;
+  background-image: url('sf.png');
+  background-size: 945px 630px;
 }
 
 ol {
