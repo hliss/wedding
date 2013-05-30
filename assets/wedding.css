@@ -2,6 +2,7 @@
 
 body {
     background-color: #F7E4D2;
+    font-family: EB Garamond, Garamond, Verdana;
 }
 
 #container {
@@ -12,7 +13,6 @@ body {
 ol, .page_content {
     margin: 0;
     float: left;
-    position: relative;
     width: 945px;
     border: 2px solid #2F6E9F;
 }
@@ -24,8 +24,12 @@ ol, .page_content {
 }
 
 .page_content.sf {
-  height: 630px;
+  min-height: 630px;
+  padding-bottom: 210px;
+  background-color: #B6CDE7;
   background-image: url('sf.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
   background-size: 945px 630px;
 }
 
@@ -33,6 +37,7 @@ ol {
     height: 585px;
     list-style: none;
     padding: 0;
+    position: relative;
 }
 
 ol li {
@@ -95,7 +100,6 @@ ul {
 h1,
 #nav li,
 .content_container {
-    font-family: EB Garamond, Garamond, Verdana;
     font-size: 24px;
 }
 
@@ -155,13 +159,9 @@ h1 {
     padding-left: 10px;
     padding-right: 10px;
     width: 565px;
-    font-size: 22px;
 }
-#places_container {
+#hotels_container, #events_container {
     font-size: 20px;
-}
-#places_container span {
-    text-align: left;
 }
 #party_container {
     padding: 30px;
