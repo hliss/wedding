@@ -11,7 +11,7 @@ body {
 }
 
 ol, .page_content {
-    margin: 0;
+    margin: 0 0 50px 0;
     float: left;
     width: 945px;
     border: 2px solid #2F6E9F;
@@ -113,14 +113,27 @@ h1 {
     color: #333;
     text-decoration: none;
 }
+
 #nav li a {
     text-decoration: none;
-    color: #2F6E9F;
 }
 
-#nav li a:visited {
-    color: #2F6E9F;
+a, #nav li a:visited {
+  color: #2F6E9F;
 }
+
+a:hover, #nav li a:visited:hover {
+  color: #1A84D6;
+}
+
+
+a:visited {
+    color: #5C2F9F;
+}
+a:visited:hover {
+    color: #7C4EBF;
+}
+
 
 h1 {
     color: #2F6E9F;
